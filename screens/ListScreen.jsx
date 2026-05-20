@@ -63,6 +63,8 @@ export default function ListScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatContainer}
         initialNumToRender={10}
+        refreshing={loading}
+        onRefresh={buscarDados}
       />
     </View>
   );
