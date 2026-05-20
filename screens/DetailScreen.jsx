@@ -1,5 +1,5 @@
-import {Text} from 'react-native';
+import { Text } from "react-native";
 
-export default function ListScreen() {
-  return <Text>ListScreen</Text>
+export default function DetailScreen() {
+  return <Text>DetailScreen</Text>;
 }
