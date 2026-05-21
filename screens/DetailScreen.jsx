@@ -7,19 +7,8 @@ import {
   ScrollView,
 } from "react-native";
 
-const mock = {
-  id: "1",
-  title: "Fone de Ouvido Bluetooth Pro",
-  description:
-    "Fone de ouvido com cancelamento de ruído ativo, bateria de até 40 horas e som de alta fidelidade.",
-  price: "349,90",
-  image:
-    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
-  category: "Eletrônicos",
-  rating: 4.8,
-};
-
-export default function DetailScreen() {
+export default function DetailScreen({ route }) {
+  const { produto } = route.params;
   return (
     <View style={styles.container}>
       <ScrollView
@@ -28,18 +17,18 @@ export default function DetailScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.header}>
-          <Text style={styles.title}>{mock.title}</Text>
+          <Text style={styles.title}>{produto.title}</Text>
           <View style={styles.categoryContainer}>
-            <Text style={styles.category}>{mock.category}</Text>
+            <Text style={styles.category}>{produto.category}</Text>
           </View>
         </View>
 
-        <Image source={{ uri: mock.image }} style={styles.image} />
+        <Image source={{ uri: produto.image }} style={styles.image} />
 
         <View style={styles.info}>
-          <Text style={styles.price}>R$ {mock.price}</Text>
-          <Text style={styles.description}>{mock.description}</Text>
-          <Text style={styles.rating}>Avaliação: {mock.rating} / 5.0</Text>
+          <Text style={styles.price}>R$ {produto.price}</Text>
+          <Text style={styles.description}>{produto.description}</Text>
+          <Text style={styles.rating}>Avaliação: {produto.rating} / 5.0</Text>
         </View>
       </ScrollView>
 

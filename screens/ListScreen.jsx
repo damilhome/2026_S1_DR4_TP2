@@ -6,12 +6,13 @@ import {
   ActivityIndicator,
   FlatList,
   Image,
+  Pressable,
 } from "react-native";
 
 const URL =
   "https://raw.githubusercontent.com/damilhome/2026_S1_DR4_TP2/refs/heads/main/data/items.json";
 
-export default function ListScreen() {
+export default function ListScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
 
@@ -43,14 +44,17 @@ export default function ListScreen() {
 
   function renderItem({ item }) {
     return (
-      <View style={styles.card}>
+      <Pressable
+        style={styles.card}
+        onPress={() => navigation.navigate("Detalhes", { produto: item })}
+      >
         <Image source={{ uri: item.image }} style={styles.image} />
         <View style={styles.cardInfos}>
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.price}>R$ {item.price}</Text>
           <Text style={styles.description}>{item.description}</Text>
         </View>
-      </View>
+      </Pressable>
     );
   }
 
